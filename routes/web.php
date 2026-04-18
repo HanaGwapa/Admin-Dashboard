@@ -6,6 +6,10 @@ use App\Http\Controllers\AdminSellerController;
 Route::get('/', function () {
     return redirect()->route('admin.sellers');
 });
+Route::get('/products_approval', function () {
+    return view('productsapproval');
+});
+
 
 // Route::get('/admin/dashboard', function () {
 //     return view('admin.dashboard');
