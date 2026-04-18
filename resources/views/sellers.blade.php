@@ -11,81 +11,107 @@
 
 <body>
     <x-layout>
-        <h3>Manage Sellers</h3>
-        <p>View and manage all registered sellers.</p>
 
-        <div class="row mb-3">
-            <div class="col-md-3">
-                <div class="card1 card-box">Total Sellers<br>
-                    <h3>342</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card2 card-box">Pending Verification<br>
-                    <h3>8</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card3 card-box">Reported Sellers<br>
-                    <h3>5</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card4 card-box blue">Banned Sellers<br>
-                    <h3>12</h3>
+        <div>
+            <div class="topbar">
+                <div class="topbar-title">Manage Sellers</div>
+                <div class="topbar-right">
+                    <div class="btn-icon"><i class="fa-solid fa-bell"></i></div>
+                    <div class="admin-pill">
+                        <div class="avatar">IM</div>
+                        imemeru
+                        <i class="fa-solid fa-chevron-down" style="font-size:10px;color:var(--muted)"></i>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <form method="GET" action="{{ route('admin.sellers') }}" class="d-flex mb-3">
-            <input type="text" name="search" class="form-control" placeholder="Search sellers...">
-            <button class="btn btn-light ms-2">Filter</button>
-        </form>
+        <div class="content">
 
-        <table class="table table-bordered bg-white">
-            <thead>
-                <tr>
-                    <th>Seller</th>
-                    <th>Category</th>
-                    <th>Products</th>
-                    <th>Status</th>
-                    <th>Date Joined</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
+            <div class="cardd row mb-3">
+                <div class="col-md-3">
+                    <div class="card1 card-box">Total Sellers<br>
+                        <h3>342</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card2 card-box">Pending Verification<br>
+                        <h3>8</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card3 card-box">Reported Sellers<br>
+                        <h3>5</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card4 card-box blue">Banned Sellers<br>
+                        <h3>12</h3>
+                    </div>
+                </div>
+            </div>
 
-            <tbody id="sellerTable">
-                @foreach($sellers as $seller)
-                <tr>
-                    <td>{{ $seller['name'] }}</td>
-                    <td>{{ $seller['category'] }}</td>
-                    <td>{{ $seller['products'] }}</td>
-                    <td>
-                        <span class="{{ $seller['status']=='Active' ? 'status-active':'status-pending' }}">
-                            {{ $seller['status'] }}
-                        </span>
-                    </td>
-                    <td>{{ $seller['date'] }}</td>
-                    <td>
-                        <button class="btn btn-view btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#sellerModal">
-                            View
-                        </button>
+            <form method="GET" action="{{ route('admin.sellers') }}" class="d-flex mb-3">
+                <input type="text" name="search" class="form-control" placeholder="Search sellers...">
+                <button class="btn btn-light ms-2">Filter</button>
+            </form>
 
-                        <form method="POST" action="/admin/sellers/suspend/{{ $seller['id'] }}" style="display:inline;">
-                            @csrf
-                            <button class="btn btn-suspend btn-sm btn-outline-warning">Suspend</button>
-                        </form>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Seller</th>
+                            <th>Category</th>
+                            <th>Products</th>
+                            <th>Status</th>
+                            <th>Date Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
 
-                        <form method="POST" action="/admin/sellers/ban/{{ $seller['id'] }}" style="display:inline;">
-                            @csrf
-                            <button class="btn btn-ban btn-sm btn-outline-danger">Ban</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
 
+                    <tbody id="sellerTable">
+                        @foreach($sellers as $seller)
+                        <tr>
+                            <td>{{ $seller['name'] }}</td>
+                            <td>{{ $seller['category'] }}</td>
+                            <td>{{ $seller['products'] }}</td>
+                            <td>
+                                <span class="{{ $seller['status']=='Active' ? 'status-active':'status-pending' }}">
+                                    {{ $seller['status'] }}
+                                </span>
+                            </td>
+                            <td>{{ $seller['date'] }}</td>
+                            <td>
+                                <button class="btn btn-view btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#sellerModal"><i class="fa-solid fa-eye"></i>
+                                    View
+                                </button>
+
+                                <form method="POST" action="/admin/sellers/suspend/{{ $seller['id'] }}" style="display:inline;">
+                                    @csrf
+                                    <button class="btn btn-suspend btn-sm btn-warning">Suspend</button>
+                                </form>
+
+                                <form method="POST" action="/admin/sellers/ban/{{ $seller['id'] }}" style="display:inline;">
+                                    @csrf
+                                    <button class="btn btn-ban btn-sm btn-danger">Ban</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <button class="page-btn"><i class="fa-solid fa-chevron-left" style="font-size:11px"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fa-solid fa-chevron-right" style="font-size:11px"></i></button>
+                </div>
+            </div>
+
+        </div>
 
 
         <!-- Seller Details Modal -->
@@ -235,6 +261,13 @@
                 let modal = new bootstrap.Modal(document.getElementById('docModal'));
                 modal.show();
             }
+
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
         </script>
 
     </x-layout>
