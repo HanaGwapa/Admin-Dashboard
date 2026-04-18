@@ -10,19 +10,21 @@ Route::get('/products_approval', function () {
     return view('productsapproval');
 });
 
-// Seller page
-// Route::get('/sellers', function () {
-//     $sellers = [];
-//     return view('sellers'); // create sellers.blade.php
-// })->name('sellers');
+Route::get('/admin', function () {
+    return view('admin');
+});
 
-// Route::get('/admin/dashboard', function () {
-//     return view('admin.dashboard');
-// })->name('admin.dashboard');
+Route::get('/products_approval', function () {
+    return view('productsapproval');
+});
 
-// Route::get('/admin/products', function () {
-//     return view('admin.products');
-// })->name('admin.products');
+Route::get('/products_approval', function () {
+    return view('productsapproval');
+});
+
+Route::get('/orders', function () {
+    return view('orders');
+});
 
 // Route::get('/admin/products', function () {
 //     return view('admin.orders');
@@ -31,11 +33,6 @@ Route::get('/products_approval', function () {
 // Route::get('/admin/products', function () {
 //     return view('admin.reports');
 // })->name('admin.reports');
-
-Route::view('/dashboard', 'dashboard')->name('dashboard');
-Route::view('/productsapproval', 'productsapproval')->name('productsapproval');
-Route::view('/orders', 'orders')->name('orders');
-Route::view('/reports', 'reports')->name('reports');
 
 //Seller Routes
 Route::get('/admin/sellers', [AdminSellerController::class, 'index'])->name('admin.sellers');
