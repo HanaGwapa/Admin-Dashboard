@@ -21,20 +21,18 @@
   <!-- ════════════════════ SIDEBAR ════════════════════ -->
   <aside class="sidebar">
     <div class="sidebar-brand">
-      <div class="brand-icon"><i class="fa-solid fa-grip"></i></div>
+      <div class="brand-icon"><i class="fa-solid fa-store"></i></div>
       <span>Admin Panel</span>
     </div>
     <nav>
-      <div class="nav-label">Main</div>
-      <a class="nav-item" href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
-      <a class="nav-item" href="#"><i class="fa-solid fa-circle-check"></i> Product Approvals</a>
-      <a class="nav-item" href="#"><i class="fa-solid fa-id-badge"></i> Seller Verification</a>
-      <a class="nav-item" href="#"><i class="fa-solid fa-users"></i> User Management</a>
-      <a class="nav-item active" href="#"><i class="fa-solid fa-receipt"></i> Orders</a>
+      <a class="nav-item" href="{{ route('admin') }}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+      <a class="nav-item" href="{{ route('productsapproval') }}"><i class="fa-solid fa-box-open"></i> Product Approvals<span class="nav-badge">12</span> </a>
+      <a class="nav-item" href="{{ route('admin.sellers') }}"><i class="fa-solid fa-user-check"></i> Seller Verification</a>
+      <a class="nav-item active" href="{{ route('orders') }}"><i class="fa-solid fa-receipt"></i> Orders</a>
       <a class="nav-item" href="#"><i class="fa-solid fa-chart-bar"></i> Reports</a>
     </nav>
     <div class="sidebar-bottom">
-      <a class="nav-item" href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+      <!-- <a class="nav-item" href="#"><i class="fa-solid fa-gear"></i> Settings</a> -->
       <a class="nav-item" href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
   </aside>
@@ -43,7 +41,7 @@
   <div class="topbar">
     <div class="topbar-title">Orders</div>
     <div class="topbar-right">
-      <div class="btn-icon"><i class="fa-regular fa-bell"></i></div>
+      <div class="btn-icon"><i class="fa-solid fa-bell"></i></div>
       <div class="admin-pill">
         <div class="av">IM</div>
         <span>imemeru</span>

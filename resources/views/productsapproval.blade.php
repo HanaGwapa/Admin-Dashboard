@@ -23,10 +23,10 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="nav-item" href="#"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+      <a class="nav-item" href="{{ route('admin') }}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
       <a class="nav-item active" href="{{ route('productsapproval') }}"><i class="fa-solid fa-box-open"></i> Product Approvals <span class="nav-badge">12</span></a>
       <a class="nav-item" href="{{ route('admin.sellers') }}"><i class="fa-solid fa-user-check"></i> Seller Verification</a>
-      <a class="nav-item" href="#"><i class="fa-solid fa-file-lines"></i> Orders</a>
+      <a class="nav-item" href="{{ route('orders') }}"><i class="fa-solid fa-file-lines"></i> Orders</a>
       <a class="nav-item" href="#"><i class="fa-solid fa-chart-bar"></i> Reports</a>
     </nav>
 
