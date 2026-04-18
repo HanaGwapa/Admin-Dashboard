@@ -14,7 +14,7 @@ Route::get('/products_approval', function () {
 Route::get('/dashboard', function () {
     return view('admin');
 });
-Route::get('/order', function () {
+Route::get('/orders', function () {
     return view('orders');
 });
 
