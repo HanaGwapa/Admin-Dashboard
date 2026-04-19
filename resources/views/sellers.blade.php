@@ -237,8 +237,6 @@
             }
         </script>
 
-
-
     </x-layout>
 </body>
 

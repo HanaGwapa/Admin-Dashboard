@@ -61,6 +61,14 @@
             color: #fff !important;
         }
 
+        .sidebar-bottom {
+            padding: 10px 10px 20px;
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
         /* MAIN */
         .main {
             margin-left: var(--sidebar-w);
@@ -170,6 +178,11 @@
         <a href="{{ route('admin.sellers') }}" class="nav-link active">Sellers</a>
         <a class="nav-link">orders</a>
         <a class="nav-link">Reports</a>
+    </div>
+
+    <div class="sidebar-bottom">
+        <!-- <a class="nav-item" href="#"><i class="fa-solid fa-gear"></i> Settings</a> -->
+        <a class="nav-item" href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
 
     <div class="main">
